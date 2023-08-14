@@ -4,7 +4,7 @@
     - name: Build an image and push it to a private repo
       community.docker.docker_image:
         build:
-          path: "/etc/ansible/"
+          path: "https://github.com/Malikjanmulla/final-devops-project.git"
         name: docker.io/malikjanmulla/abctechnology
         push: true
         source: build
