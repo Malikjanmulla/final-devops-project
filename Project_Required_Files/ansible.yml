@@ -11,3 +11,13 @@
       register: out
     - debug:
         var: out
+    - name: start a container
+      community.docker.docker_container:
+         name: abc-application
+         image: malikjanmulla/abctechnology
+         state: started
+         ports:
+             - 1234:8080
+      register: out
+    - debug:
+          var: out
