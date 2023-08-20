@@ -22,14 +22,13 @@
              - 1234:8080
       register: out
     - debug:
-          var: out
----
+        var: out
 - name: Deploy to Kubernetes
   hosts: k8s
   become: yes
   tasks:
     - name: Create a Deployment by reading the definition from a local file 
-          command: "kubectl apply -f /home/edureka/Desktop/deployment.yml"    
-          register: out
-        - debug:
-              var: out
+      command: "kubectl apply -f /home/edureka/Desktop/deployment.yml"    
+      register: out
+    - debug:
+        var: out
