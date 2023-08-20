@@ -1,2 +1,5 @@
 [local]
 localhost ansible_connection=local
+
+[k8s]
+k8s-host ansible_host=65.2.137.100 ansible_user=kubmaster
