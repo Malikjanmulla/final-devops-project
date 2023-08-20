@@ -28,7 +28,7 @@
   become: yes
   tasks:
     - name: Create a Deployment by reading the definition from a local file 
-      command: "kubectl apply -f /home/edureka/Desktop/deployment.yml"    
+      command: "kubectl apply -f /home/kubmaster/deployment.yml"    
       register: out
     - debug:
         var: out
