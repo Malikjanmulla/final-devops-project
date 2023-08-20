@@ -1,7 +1,7 @@
 ---
 - name: Build and Push Docker Image on Localhost
   hosts: localhost
-  become: yes
+  become: no
   tasks:
     - name: Build an image and push it to a private repo
       community.docker.docker_image:
