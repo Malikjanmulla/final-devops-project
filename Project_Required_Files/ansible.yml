@@ -1,10 +1,12 @@
-- hosts: localhost
+---
+- name: Build and Push Docker Image on Localhost
+  hosts: localhost
   become: yes
   tasks:
     - name: Build an image and push it to a private repo
       community.docker.docker_image:
         build:
-          path: "/home/ec2-user/workspace/Package_Kubernates"
+          path: "/home/ansibleadmin/workspace/Package_Kubernates"
         name: docker.io/malikjanmulla/abctechnology
         push: true
         source: build
@@ -21,3 +23,13 @@
       register: out
     - debug:
           var: out
+---
+- name: Deploy to Kubernetes
+  hosts: k8s
+  become: yes
+  tasks:
+    - name: Create a Deployment by reading the definition from a local file 
+          command: "kubectl apply -f /home/edureka/Desktop/deployment.yml"    
+          register: out
+        - debug:
+              var: out
